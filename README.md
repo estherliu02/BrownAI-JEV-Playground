@@ -1,6 +1,4 @@
-# BrownAI-JEV-Playground
-
-[![Why BrownAI? What Students Told Us.](docs/takeaway.png)](Takeaway.pptx)
+[![Why BrownAI? What Students Told Us.](docs/takeaway.png)](Takeaway.pdf)
 
 ## Run locally
 
