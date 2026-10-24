@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BrownAI · JEV Playground</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' file:; script-src 'self' file:; style-src 'self' file:; connect-src 'none'; img-src 'self' data:; object-src 'none'; base-uri 'none'">
+  <link rel="stylesheet" href="assets/styles.css?v=13">
+</head>
+<body>
+  <h1>BrownAI Formative Study JEV Playground</h1>
+
+  <div class="panels">
+    <div class="panel">
+      <div>
+        Primitive:
+        <label><input type="radio" name="type" value="noul" checked> Noul</label>
+        <label><input type="radio" name="type" value="score"> Score</label>
+        <label><input type="radio" name="type" value="choice"> Choice</label>
+      </div>
+      <label class="block">Preset question <select id="preset"></select></label>
+      <label class="block">Instruction
+        <textarea id="instruction" rows="1" readonly></textarea>
+      </label>
+      <label class="block" id="rubric-box" hidden>Rubric <span class="hint">(lowest first)</span>
+        <textarea id="rubric" rows="4" readonly placeholder="Not useful&#10;Slightly useful&#10;Useful&#10;Highly useful"></textarea>
+      </label>
+      <label class="block" id="choices-box" hidden>Choices
+        <textarea id="choices" rows="4" readonly placeholder="Reliability&#10;Coverage&#10;Frequency&#10;Navigation&#10;Information availability&#10;Other"></textarea>
+      </label>
+      <button id="apply">Apply to Current Rows</button> <span id="apply-status" role="status" aria-live="polite"></span>
+      <ul id="questions"></ul>
+    </div>
+
+    <div class="side">
+      <div class="panel" id="filter-panel">
+        <h2>Filters</h2>
+        <select id="f-col" aria-label="Filter column"></select>
+        <select id="f-op" aria-label="Filter operator">
+          <option>==</option><option>!=</option><option>contains</option>
+          <option>&gt;=</option><option>&lt;=</option><option>&gt;</option><option>&lt;</option>
+        </select>
+        <input aria-label="Filter value" id="f-val" placeholder="value">
+        <select id="f-pick" aria-label="Filter value" hidden></select>
+        <button id="f-add">Apply</button>
+        <button id="f-clear">Clear Filters</button>
+        <div id="f-list"></div>
+      </div>
+
+      <div class="panel" id="sort-panel">
+        <h2>Sort</h2>
+        <select id="s-col" aria-label="Sort column"></select>
+        <select id="s-dir" aria-label="Sort direction">
+          <option value="1">Ascending</option><option value="-1">Descending</option>
+        </select>
+        <button id="s-add">Apply</button>
+        <button id="s-clear">Clear Sort</button>
+        <div id="s-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <span id="count"></span>
+    <div class="toolbar-actions"><button id="export">Save as Excel</button> <button id="reset">Reset generated columns</button></div>
+  </div>
+  <div class="table-wrap"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div>
+
+  <script src="assets/data.js?v=13"></script>
+  <script src="assets/export.js?v=13"></script>
+  <script src="assets/app.js?v=13"></script>
+</body>
+</html>
