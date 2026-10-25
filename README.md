@@ -1,4 +1,4 @@
-**Takeaway:** [Why BrownAI? What Students Told Us. (PDF)](Takeaway.pdf)
+[Why BrownAI? What Students Told Us.](Takeaway.pdf)
 
 ## Run locally
 
